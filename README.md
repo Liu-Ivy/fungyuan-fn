@@ -81,7 +81,8 @@ User
 	email: String // required & unique
 	phone: String // required
 } 
-```            
+```   
+Category model         
 ```js
 Category
  {
@@ -90,6 +91,7 @@ Category
   img: String // required
 }  
 ``` 
+Product model
 ```js
 Product
  {
@@ -100,6 +102,7 @@ Product
   category_id: {type: ObjectId, ref: Category }
 } 
 ``` 
+Order model
 ```js
 OrderList
 {

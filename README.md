@@ -17,7 +17,7 @@ This is an Mobile App for FunYung Grinding Wheel company.
 ## Backlog
 
 - CSS animation
-- Save the shopping list as a PDF file.
+- Save the order list as a PDF file.
 - Geo Location of each office.
 
 Homepage:
@@ -39,29 +39,40 @@ Homepage:
 | `/cart` | Cart| private | shows the order list
 
 
-
-
 ## Services
 
 - Auth Service
-  - auth.login(user)
-  - auth.signup(user)
-  - auth.logout()
-  - auth.me()
-  - auth.getUser() // synchronous
+  - login(user)
+  - signup(user)
+  - logout()
+  - me()
+  - getUser() // synchronous
 
+
+- Category Service
+  - getCategory
+  - updeteCategory(category)
+  - createCategory(category)
+  - deleteCategory(categoryId)
 
 - Product Service
-  - product.getAll()
-  - product.addOne(body)
-  - product.edit(id, body)
-  - product.delete(id)
+  - getCategory
+  - updeteCategory(category)
+  - createCategory(category)
+  - deleteCategory(categoryId)
+
+- OrderList Service
+  - getCategory(userId)
+  - updeteCategory(userId)
+  - createCategory(OrderListId)
+
 # Server
 
 ## Models
 
 User model
 
+```js
 User 
 {
   _id: ObjectId
@@ -69,24 +80,27 @@ User
   password: String // required
 	email: String // required & unique
 	phone: String // required
-}             
-
+} 
+```            
+```js
 Category
  {
   _id: ObjectId
-	title: String // required
-}   
-
+  title: String // required
+  img: String // required
+}  
+``` 
+```js
 Product
  {
   _id: ObjectId
 	name: String // required
   img: string //reuqired
   description: String // required
-  price: number // required
   category_id: {type: ObjectId, ref: Category }
 } 
-
+``` 
+```js
 OrderList
 {
   _id: Object
@@ -95,24 +109,27 @@ OrderList
   ]
   user_id: {type: ObjectId, ref: User}
 }
-
-
-
+``` 
 
 ## API Endpoints (backend routes)
-API Endpoints (backend routes)
 
-HTTP method	URL	Request Body	Success Status	Error Status	Description
-POST	/auth/signup	{ username, password, email, phone }	201	400	Create a new user
-POST	/auth/login	{ username, password }	200	401	User login
-GET	/auth/me	200	401	Retrieve user data object
-POST	/auth/logout		200	400	Logout the user
-
-GET	/category	/	200	400	Get all categories for the user
-POST	/category	/product { name, img, description, price, category_id }	200	400	Get all products for the user
-POST	/cart /	{ OrderList: [{type:ObjectId, ref:Product}] user_id: {type: ObjectId, ref: User} }	201	400	Create an OrderList
-PUT	/cart/:id /	{ OrderList: [{type:ObjectId, ref:Product}] user_id: {type: ObjectId, ref: User} }	201	400	Updated an OrderList
-
+|HTTP method	|URL|	Request Body	|Success Status|	Error Status|	Description|
+|------|--------|--| -------|---|--------|
+|POST	|/auth/signup|	{ username, password, email, phone }|	200|	404|	Create a new user
+|POST	|/auth/login|	{ username, password }|	200|	404|	User login
+|GET	|/auth/me|\	|200|	404|	Retrieve user data object
+|POST	|/auth/logout|\ | 200|	404|	Logout the user
+|GET	|/category |\ | 200	| 404|	Get all categories for the user
+|POST	|/category|{title, img}  |200	| 404|	create category
+|PUT	|/category/:categoryId | { _Id, title, img}  |200	| 404|	updeted category
+|Delete	|/category|{ _Id, title, img}|200	| 404|	delete category
+|GET	|/category/product |\ | 200	| 404|	Get all products from one category
+|POST	|/product|{ name, img, description,category_id} |200	| 404|	create category
+|PUT	|/product/:productId | {_id, name, img, description,category_id}  |200	| 404|	updeted category
+|Delete	|/product/:productId | { _Id, title, img}|200	| 404|	delete category
+|GET	|orderList/userId |\ | 200	| 404|	Get the orderlist for the user
+|POST	|orderList/userId| { _id, orderList, user_id} |200	| 404|create orderList
+|PUT	|orderList/userId | { _id, orderList, user_id}  |200	| 404|	updeted category
 
 ## Links
 

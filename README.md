@@ -11,7 +11,7 @@ This is an Mobile App for FunYung Grinding Wheel company.
 -  **Login:** As a user I can login to the platform so that I can see all the information
 -  **Logout:** As a user I can logout from the platform so no one else can use it
 -  **Add** As a user I can add products to the shopping cart.
--  **Delete** As a user I can delete a product from their shopping list.
+-  **Delete** As a user I can delete a product from shopping list.
 -  **Create** As a user I can creat a shopping list.
 
 ## Backlog
@@ -26,17 +26,19 @@ Homepage:
 # Client
 
 ## Routes
-| Method | Path | Component | Permissions | Behavior | 
-|--------|------|--------|--| -------|
-| `get`  | `/` | HomePageComponent| public | just promotional copy|
-| `post` | `/auth/signup` | SignupPageComponent| anon only| signup form, link to login, navigate to homepage after signup|
-| `post` | `/auth/login` | LoginPageComponent | anon only |login form, link to signup, navigate to homepage after login |
-| `post` | `/auth/logout` | n/a| anon only | navigate to homepage after logout, expire session |
-| `get`  | `/products` | ViewComponent| public | shows all products, links to details
-| `get`  | `/products/:product` | ViewComponent| public | shows all products related to the product, links to details
-| `get`  | `/product/:id` | ViewComponent| public | shows the single product
-| `post` | `/product/new` | CreateViewComponent | user only | add a new product
-| `get` | `**` | NotFoundPageComponent | public | 
+| Path | Component | Permissions | Behavior | 
+|------|--------|--| -------|
+| `/` | HomePage| public | just promotional copy|
+| `/auth/signup` | SignupPage| anon only| signup form, navigate to all product page after signup|
+| `/auth/login` | LoginPage | anon only |navigate to all product page after login |
+| `/auth/logout` | HomePage| anon only | navigate to homepage after logout, expire session |
+| `/category` | Category| public | shows all products, links to details
+| `/category/product` | Product| public | shows all products related to the product, links to details
+| `/product/item` | Item| public | shows the single product
+| `/product/add` | AddItem | private | add a new product
+| `/cart` | Cart| private | shows the order list
+
+
 
 
 ## Services
@@ -49,105 +51,68 @@ Homepage:
   - auth.getUser() // synchronous
 
 
-- P Service
+- Product Service
   - product.getAll()
   - product.addOne(body)
-  - plan.edit(id, body)
-  - plan.delete(id)
+  - product.edit(id, body)
+  - product.delete(id)
 # Server
 
 ## Models
 
 User model
 
-username - String // required // unique
-password - String // required
-location - String
-plans - [{Object.id: plans}]
+User 
+{
+  _id: ObjectId
+	username: String // required
+  password: String // required
+	email: String // required & unique
+	phone: String // required
+}             
 
-Product model
+Category
+ {
+  _id: ObjectId
+	title: String // required
+}   
 
-Product Name - String // required
-Description - String // required
-Size - number // required
-Image - String // required
-```
+Product
+ {
+  _id: ObjectId
+	name: String // required
+  img: string //reuqired
+  description: String // required
+  price: number // required
+  category_id: {type: ObjectId, ref: Category }
+} 
+
+OrderList
+{
+  _id: Object
+  orderList: [
+    {type:ObjectId, ref:Product}
+  ]
+  user_id: {type: ObjectId, ref: User}
+}
+
+
+
 
 ## API Endpoints (backend routes)
+API Endpoints (backend routes)
 
-- GET /auth/me
-  - 404 if no user in session
-  - 200 with user object
-- POST /auth/signup
-  - 401 if user logged in
-  - body:
-    - companyname
-    - e-mail
-    - phone
-  - validation
-    - fields not empty (422)
-    - user not exists (409)
-  - create user with encrypted password
-  - store user in session
-  - 200 with user object
-- POST /auth/login
-  - 401 if user logged in
-  - body:
-    - company name
-    - phone
-  - validation
-    - fields not empty (422)
-    - user exists (404)
-    - phone matches (404)
-  - store user in session
-  - 200 with user object
-- POST /auth/logout
-  - body: (empty)
-  - 204
+HTTP method	URL	Request Body	Success Status	Error Status	Description
+POST	/auth/signup	{ username, password, email, phone }	201	400	Create a new user
+POST	/auth/login	{ username, password }	200	401	User login
+GET	/auth/me	200	401	Retrieve user data object
+POST	/auth/logout		200	400	Logout the user
 
-- GET /products
-  - check if logged in 
-  - 200 with user object
+GET	/category	/	200	400	Get all categories for the user
+POST	/category	/product { name, img, description, price, category_id }	200	400	Get all products for the user
+POST	/cart /	{ OrderList: [{type:ObjectId, ref:Product}] user_id: {type: ObjectId, ref: User} }	201	400	Create an OrderList
+PUT	/cart/:id /	{ OrderList: [{type:ObjectId, ref:Product}] user_id: {type: ObjectId, ref: User} }	201	400	Updated an OrderList
 
- - GET /products:product
-   - body:
-    - topic
-    - 200 with topic objects
-
-   - GET /products:id
-   - body:
-    - id
-    - Topic 
-    - Image 
-    - 200 with topic object
-
-- POST /product/new
-  - body:
-    - Product
-    - Description 
-    - Size 
-    - Image 
-  - validation
-    - fields cant be empty(422)
-
-- DELETE /product/id
-  - validation
-    - id is valid (404)
-    - id exists (404)
-  - body: (empty - the user is already stored in the session)
-  - remove from topic collection
-  - updates user in session
-
-## API routes:
-
-### auth
-|Method|Route|Functionality|
-|---|---|---|
-|GET|api/auth/me|Check session status|
-|POST|api/auth/signup|Log in user to app and set user to session (Body: username, password)|
-|POST|api/auth/login|Register user to app and set user to session (Body: username, password)|
-|POST|api/auth/logout|Log out user from app and remove session|
-  
 
 ## Links
 
@@ -157,19 +122,4 @@ https://trello.com/b/VplVeNkz/funyung-company
 
 ### Git
 
-The url to your repository and to your deployed project
 
-[Client repository Link](https://github.com/Ironhack-PartTime-BCN/boilerplate-frontend-module-3)
-
-[Server repository Link](https://github.com/Ironhack-PartTime-BCN/boilerplate-backend-module-3)
-
-[Deploy Link Backend](http://heroku.com)
-
-[Deploy Link Frontend]()
-
-### Slides
-
-The url to your presentation slides
-
-[Slides Link](http://slides.com)
-# fungyuan-fn

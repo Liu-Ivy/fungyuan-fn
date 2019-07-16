@@ -1,11 +1,15 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { withAuth } from "../lib/AuthProvider";
+import "./Navbar.css";
+
+
 class Navbar extends Component {
+
   render() {
     const { user, logout, isLoggedin } = this.props;
     return (
-      <div>
+      <div className="navbar">
         {isLoggedin ? (
           <>
             <p>username: {user.username}</p>
@@ -13,8 +17,11 @@ class Navbar extends Component {
           </>
         ) : (
           <>
-            <Link to="/login">Login</Link>
-            <Link to="/signup">Signup</Link>
+            <img src="./logo.png" alt="Logo"/>
+            <Link to="/">Home</Link>
+            <Link to="/form/login">Login</Link>
+            <Link to="/form/singup">Signup</Link>
+            <Link to="/">Logout</Link>
           </>
         )}
       </div>

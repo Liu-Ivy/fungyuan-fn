@@ -10,6 +10,7 @@ import AnonRoute from "./components/AnonRoute";
 import AuthProvider from "./lib/AuthProvider";
 import MainPage from "./pages/MainPage";
 import FormPage from "./pages/FormPage";
+import Category from "./pages/Category";
 
 
 
@@ -23,6 +24,7 @@ class App extends Component {
             <AnonRoute exact path="/" component={MainPage} />
             <AnonRoute path="/form" component={FormPage} />
             <PrivateRoute path="/private" component={Private} />
+            <PrivateRoute path="/category" component={Category} />
           </Switch>
          <Footer />
         </div>

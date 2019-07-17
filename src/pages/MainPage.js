@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 
-import './MainPage.css'
+import './MainPage.css';
 
 class MainPage extends Component {
   render() {
@@ -11,7 +11,7 @@ class MainPage extends Component {
           <h1>豐元企業有限公司</h1>
         </div>
          <div className='main-products'>
-          <h1>All Product</h1>
+          <h1>Our Products</h1>
           <Link to='/form'><button>See More</button></Link>
          </div>
       </>

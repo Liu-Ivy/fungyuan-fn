@@ -1,4 +1,13 @@
-.product{
-  height: 300px;
+.product-box {
+  height: 600px;
   border: solid 0.5px darkblue;
+}
+
+.product{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  margin: auto;
 }

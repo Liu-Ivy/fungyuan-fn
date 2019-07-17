@@ -16,11 +16,13 @@ class Category extends Component {
 
   render() {
     return (
-      <div className="product">
+      <div className="product-box">
         <h1>Our Products</h1>
+        <div className="product">
         {this.state.category.map((category)=>{
           return <CategoryCard category={category.title} image={category.image} key={category._id}/>
         })}
+        </div>
       </div>
     )
   }

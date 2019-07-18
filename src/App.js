@@ -11,6 +11,7 @@ import AuthProvider from "./lib/AuthProvider";
 import MainPage from "./pages/MainPage";
 import FormPage from "./pages/FormPage";
 import Category from "./pages/Category";
+import Prodcut from "./pages/Product";
 
 
 
@@ -24,7 +25,8 @@ class App extends Component {
             <AnonRoute exact path="/" component={MainPage} />
             <AnonRoute path="/form" component={FormPage} />
             <PrivateRoute path="/private" component={Private} />
-            <PrivateRoute path="/category" component={Category} />
+            <PrivateRoute exact path="/category" component={Category} />
+            <PrivateRoute path="/category/:id" component={Prodcut} />
           </Switch>
          <Footer />
         </div>

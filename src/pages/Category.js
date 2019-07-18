@@ -1,30 +1,36 @@
 import React, { Component } from 'react';
-import category from '../lib/Category-service';
+import categoryService from '../lib/category-service';
 import CategoryCard from '../card/CategoryCard';
+import { withAuth } from "../lib/AuthProvider";
+
 import './Category.css';
 
 class Category extends Component {
   state = {
-    category: [],
+    categories: [],
   }
 
   componentDidMount(){
-    category.getAll()
-      .then((category)=>this.setState({category:category}))
+    categoryService.getAll()
+      .then((categories)=>this.setState({categories:categories}))
+
   }
 
 
   render() {
+    console.log('this.props2', this.props)
+
     return (
       <div className="product-box">
         <h1>Our Products</h1>
         <div className="product">
-        {this.state.category.map((category)=>{
-          return <CategoryCard category={category.title} image={category.image} key={category._id}/>
+        {this.state.categories.map((category)=>{
+          console.log('category',category)
+          return <CategoryCard category={category} key={category._id}/>
         })}
         </div>
       </div>
     )
   }
 }
-export default Category
+export default withAuth(Category)

@@ -96,6 +96,7 @@ Product model
 Product
  {
   _id: ObjectId
+  title: String //required
 	name: String // required
   img: string //reuqired
   description: String // required

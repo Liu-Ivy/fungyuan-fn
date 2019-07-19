@@ -15,10 +15,15 @@ class Product extends Component {
     .then((products)=> {this.setState({products:products})})
   }
 
+  showTitle() {
+    return this.state.products[0] ? <h1>{this.state.products[0].category_id.title}</h1> : null
+  }
+
   render() {
     console.log('this.props', this.props)
     return (
       <div>
+        {this.showTitle()}
         {this.state.products.map((product) =>{
           return <ProductCard product={product}/>
         })}

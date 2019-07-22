@@ -12,6 +12,7 @@ import MainPage from "./pages/MainPage";
 import FormPage from "./pages/FormPage";
 import Category from "./pages/Category";
 import Prodcut from "./pages/Product";
+import AddProduct from "./pages/AddProduct";
 
 
 
@@ -27,6 +28,7 @@ class App extends Component {
             <PrivateRoute path="/private" component={Private} />
             <PrivateRoute exact path="/category" component={Category} />
             <PrivateRoute path="/category/:id" component={Prodcut} />
+            <PrivateRoute exact path="/addProduct" component={AddProduct} />
           </Switch>
          <Footer />
         </div>

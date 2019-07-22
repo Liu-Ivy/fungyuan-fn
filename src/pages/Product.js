@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { withAuth } from "../lib/AuthProvider";
 import product from '../lib/product-service.js';
 import ProductCard from '../card/ProductCard';
+import { Link } from "react-router-dom";
 
 
 class Product extends Component {
@@ -10,7 +11,7 @@ class Product extends Component {
   }
 
   componentDidMount(){
-    console.log('this.props', this.props)
+    // console.log('this.props', this.props)
     product.getProduct(this.props.match.params.id)
     .then((products)=> {this.setState({products:products})})
   }
@@ -20,13 +21,14 @@ class Product extends Component {
   }
 
   render() {
-    console.log('this.props', this.props)
+    // console.log('this.props', this.props)
     return (
       <div>
         {this.showTitle()}
         {this.state.products.map((product) =>{
-          return <ProductCard product={product}/>
+          return <ProductCard product={product} key={product._id}/>
         })}
+        <Link to="/category"><button>Go Back</button></Link>
       </div>
     )
   }

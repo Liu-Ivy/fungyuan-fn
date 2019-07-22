@@ -11,10 +11,18 @@ class Product {
   getProduct(id) {
     return this.product.get(`/${id}`)
         .then(({ data }) => {
-          console.log('getProduct',data)
+          // console.log('getProduct',data)
           return data
         });
-    }  
+    } 
+  createProduct(product){
+    return this.product.post('/',product)
+    .then(({data})=>data)
+  }
+  imageUpload(file) {
+    return this.product.post('/image', file)
+    .then(({data}) => data)
+  }
 }
 
 const product = new Product();

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import './AddProduct.css';
 import product from '../lib/product-service'
 
 const style = {
@@ -40,7 +39,6 @@ class AddProduct extends Component {
   
     product.imageUpload(uploadData)
     .then((imageUrl) => {
-      console.log('imageUrl', imageUrl)
       this.setState({
         imageUrl: imageUrl,
       })

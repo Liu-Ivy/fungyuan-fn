@@ -3,7 +3,6 @@ import categoryService from '../lib/category-service';
 import CategoryCard from '../card/CategoryCard';
 import { withAuth } from "../lib/AuthProvider";
 import { Link } from "react-router-dom";
-
 import './Category.css';
 
 class Category extends Component {

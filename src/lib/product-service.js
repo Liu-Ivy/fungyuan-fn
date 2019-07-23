@@ -23,6 +23,10 @@ class Product {
     return this.product.post('/image', file)
     .then(({data}) => data)
   }
+  deleteProduct(id){
+    return this.product.delete('/'+id, product)
+    .then(({data})=>data)
+  }
 }
 
 const product = new Product();

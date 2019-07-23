@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  height: 80px;
+  border: solid 0.5px darkblue;
+}
+.footer {
+  height: 100px;
+  border: solid 0.5px darkblue;
+}
+
+.main-products{
+  height: 300px;
+  border: solid 0.5px darkblue;
+}
+.info {
+  height: 300px;
+  border: solid 0.5px darkblue;
+}
+
+.about-us{
+  height: 300px;
+  border: solid 0.5px darkblue;
+}
+
+.add-form{
+  height: 300px;
+  border: solid 0.5px darkblue;
+
+}

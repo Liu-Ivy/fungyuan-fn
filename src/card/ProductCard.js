@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 // import { Link } from 'react-router-dom';
 import { withAuth } from "../lib/AuthProvider";
 
@@ -7,24 +7,34 @@ const style = {
   height: '180px',
  }
 
-function ProductCard(props) {
+
+
+class ProductCard extends Component {
   
-  const { name, img, description } = props.product;
-  console.log('props', props)
-  const addToCart = () => {
-    //todo implement later
+  handleSwitch=()=>{
+    console.log('this.props.orderList', this.props.orderList)
+    if (this.props.orderList && this.props.orderList.includes(this.props.product._id)){
+      return <button onClick={()=>{this.props.handleRemove(this.props.product._id)}}>Remove -</button>
+    } else {
+      return <button onClick={()=>{this.props.handleAdd(this.props.product._id)}}>Add To Order List +</button>
+    }
   }
 
-  return (
-    <div>
-       <h3>{name}</h3>
-       <img src={img} alt="" style={style}/>
-       <p>{description}</p>
-       {props.user.username === "admin" ? <button onClick={()=>{props.handleDelete(props.product._id)}}>Delete</button> : <button onClick={addToCart}>Add To Order List +</button>}
-      
-       
-    </div>
-  )
+  render() {
+    const { name, img, description } = this.props.product;
+    console.log('this.props', this.props)
+    return (
+      <div>
+        <h3>{name}</h3>
+        <img src={img} alt="" style={style}/>
+        <p>{description}</p>
+        {this.props.user.username === "admin" ? 
+          <button onClick={()=>{this.props.handleDelete(this.props.product._id)}}>Delete</button> : 
+          this.handleSwitch(this.props)
+        } {/*this.props from parents-Product*/}
+      </div>
+    )
+  }
 }
 
 export default withAuth(ProductCard)

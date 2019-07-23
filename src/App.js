@@ -13,6 +13,7 @@ import FormPage from "./pages/FormPage";
 import Category from "./pages/Category";
 import Prodcut from "./pages/Product";
 import AddProduct from "./pages/AddProduct";
+import OrderList from "./pages/OrderList";
 import './App.css';
 
 
@@ -30,6 +31,7 @@ class App extends Component {
             <PrivateRoute exact path="/category" component={Category} />
             <PrivateRoute path="/category/:id" component={Prodcut} />
             <PrivateRoute className="add-form" exact path="/addProduct" component={AddProduct} />
+            <PrivateRoute className="order-list" path="/orderList" component={OrderList}/>
           </Switch>
          <Footer className="footer"/>
         </div>

@@ -3,6 +3,7 @@ import { withAuth } from "../lib/AuthProvider";
 import product from '../lib/product-service.js';
 import ProductCard from '../card/ProductCard';
 import { Link } from "react-router-dom";
+import orderList from '../lib/orderList-service';
 
 
 class Product extends Component {
@@ -33,6 +34,25 @@ class Product extends Component {
       })
     })
   }
+  handleAdd = (productID) => {
+    const oldOrderList = [...this.props.orderList]
+    const newOrderList = [...oldOrderList, productID]//this.props.orderList -- from context
+    console.log('addList',newOrderList)
+    this.props.setOrderList(newOrderList);//updated orderList in context
+    const newUser = Object.assign({},this.props.user)//get user without reference
+    newUser.orderList = newOrderList
+    orderList.updatedOrderList(newUser)
+  }
+  handleRemove = (productID) => {
+    const oldOrderList = [...this.props.orderList];
+    const newOrderList = oldOrderList.filter(id => productID !== id)
+    console.log('remove',newOrderList)
+    this.props.setOrderList(newOrderList);//updated orderList in context
+    const newUser = Object.assign({},this.props.user)//get user without reference
+    newUser.orderList = newOrderList
+    orderList.updatedOrderList(newUser)
+  }
+
 
   render() {
     // const { username } = this.props.user.username
@@ -44,7 +64,7 @@ class Product extends Component {
         {this.showTitle()}
         {this.state.products.map((product) =>{
           console.log('product', product)
-          return <ProductCard product={product} key={product._id} handleDelete={this.handleDelete} />
+          return <ProductCard product={product} key={product._id} handleDelete={this.handleDelete} handleAdd={this.handleAdd} handleRemove={this.handleRemove}/>
         })}
         <Link to="/category"><button>Go Back</button></Link>
       </div>

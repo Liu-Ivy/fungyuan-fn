@@ -16,8 +16,8 @@ class Category extends Component {
 
   }
   render() {
-    // console.log('this.props2', this.props)
-    // console.log('this.props.user.username', this.props.user.username)
+    console.log('this.props2', this.props)
+    console.log('this.props.user.username', this.props.user.username)
     return (
       <div className="product-box">
         <h1>Our Products</h1>

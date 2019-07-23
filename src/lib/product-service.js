@@ -9,9 +9,15 @@ class Product {
   }
 
   getProduct(id) {
-    return this.product.get(`/${id}`)
+    return this.product.get(`/getCategory/${id}`)
         .then(({ data }) => {
           // console.log('getProduct',data)
+          return data
+        });
+    } 
+  getOneProduct(id) {
+    return this.product.get(`/getOne/${id}`)
+        .then(({ data }) => {
           return data
         });
     } 

@@ -6,6 +6,7 @@ class MainPage extends Component {
   render() {
     return (
       <>
+  
         <div className='info'>
           <h1>豐元企業有限公司</h1>
         </div>

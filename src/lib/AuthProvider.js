@@ -17,7 +17,8 @@ export const withAuth = Comp => {
                 user={authStore.user}
                 logout={authStore.logout}
                 isLoggedin={authStore.isLoggedin}
-                
+                orderList={authStore.orderList}
+                setOrderList={authStore.setOrderList}
                 {...this.props}
               />
             );
@@ -32,7 +33,8 @@ class AuthProvider extends Component {
   state = {
     isLoggedin: false,
     user: null,
-    isLoading: true
+    isLoading: true,
+    orderList:[],
   };
 
   componentDidMount() {
@@ -42,14 +44,16 @@ class AuthProvider extends Component {
         this.setState({
           isLoggedin: true,
           user,
-          isLoading: false
+          isLoading: false,
+          orderList: user.orderList,
         });
       })
       .catch(() => {
         this.setState({
           isLoggedin: false,
           user: null,
-          isLoading: false
+          isLoading: false,
+          orderList: [],
         });
       });
   }
@@ -95,8 +99,13 @@ class AuthProvider extends Component {
       })
       .catch(() => {});
   };
+  setOrderList = (newOrderList) => {
+    this.setState({
+      orderList: newOrderList,
+    })
+  }
   render() {
-    const { isLoading, isLoggedin, user } = this.state;
+    const { isLoading, isLoggedin, user, orderList} = this.state;
     return isLoading ? (
       <div>Loading</div>
     ) : (
@@ -104,6 +113,8 @@ class AuthProvider extends Component {
         value={{
           isLoggedin,
           user,
+          orderList,
+          setOrderList: this.setOrderList,
           login: this.login,
           logout: this.logout,
           signup: this.signup

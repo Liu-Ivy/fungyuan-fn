@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { withAuth } from "../lib/AuthProvider";
 
 
+
 const style = {
   weight: '50px',
   height: '50px',
@@ -19,6 +20,9 @@ class Navbar extends Component {
             <Link to="/">Home</Link>
             <p> Welcome: {user.username}</p>
             <button onClick={logout}>Logout</button>
+            <br/>
+            <Link to="/orderList"><button>My Order</button></Link>
+            
           </>
         ) : (
           <>

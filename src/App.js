@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Switch } from "react-router-dom";
 
-import Navbar from "./components/Navbar";
+import Nav from "./components/Nav";
 import Private from "./pages/Private";
 import Footer from "./components/Footer";
 
@@ -23,7 +23,7 @@ class App extends Component {
     return (
       <AuthProvider>
         <div className="container">
-          <Navbar className="navbar" />
+          <Nav className="nav" />
           <Switch >
             <AnonRoute className="main-products info" exact path="/" component={MainPage} />
             <AnonRoute className="about-us" path="/form" component={FormPage} />

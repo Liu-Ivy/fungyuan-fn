@@ -1,23 +1,37 @@
-* {
-  margin: 0;
-  padding: 0;
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+.container {
+  margin: 0px;
+  padding: 0px;
 }
 
-.navbar {
-  height: 80px;
-  border: solid 0.5px darkblue;
-}
 .footer {
   height: 100px;
   border: solid 0.5px darkblue;
 }
 
-.main-products{
-  height: 300px;
-  border: solid 0.5px darkblue;
+h1 {
+  font-size: 22px;
 }
+h2 {
+  font-size: 20px;
+}
+h3 {
+  font-size: 15px;
+}
+h4 {
+  font-size: 12px;
+}
+p{
+  font-size: 9px;
+}
+/* .main-products{
+  height: 00px;
+} */
 .info {
-  height: 300px;
+  height: 400px;
   border: solid 0.5px darkblue;
 }
 
@@ -34,4 +48,17 @@
 .order-list {
   height: 300px;
   border: solid 0.5px darkblue;
+}
+
+/* small (-sm-) devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+}
+/* medium (-md-) devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+}
+/* large (-lg-) devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+}
+/* Extra large (-xl-) devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
 }

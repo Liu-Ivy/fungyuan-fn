@@ -59,12 +59,12 @@ class AddProduct extends Component {
             <div className="select">
               <select name="category_id" required onChange={this.handleChange}>
                 <option value={category_id}>Find a Category</option>
-                <option value="5d35ac811cbe22362f851bcc">Metal Bond</option>
-                <option value="5d35ac811cbe22362f851bcd">Mounted-Points</option>
-                <option value="5d35ac811cbe22362f851bce">Traditional Grinder Wheels</option>
-                <option value="5d35ac811cbe22362f851bc9">Bench Grinder Wheels</option>
-                <option value="5d35ac811cbe22362f851bca">Surface Grinder Wheels</option>
-                <option value="5d35ac811cbe22362f851bcb">Diamond Dresser</option>
+                <option value="5d384b74fbf2fa0d640da184">Metal Bond</option>
+                <option value="5d384b74fbf2fa0d640da185">Mounted-Points</option>
+                <option value="5d384b74fbf2fa0d640da186">Traditional Grinder Wheels</option>
+                <option value="5d384b74fbf2fa0d640da181">Bench Grinder Wheels</option>
+                <option value="5d384b74fbf2fa0d640da182">Surface Grinder Wheels</option>
+                <option value="5d384b74fbf2fa0d640da183">Diamond Dresser</option>
               </select>
             </div>
           </div>

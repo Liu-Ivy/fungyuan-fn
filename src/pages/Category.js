@@ -21,7 +21,7 @@ class Category extends Component {
       <>
       <div className="product-box">
         <h2 className="text-center">Our Products</h2>
-        <div className="product">
+        <div className="product d-flex flex-column">
         {this.state.categories && this.state.categories.map((category)=>{
           return <CategoryCard category={category} key={category._id}/>
         })}

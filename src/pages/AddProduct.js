@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import product from '../lib/product-service';
+import categoryService from '../lib/category-service';
 import "../App.css";
 // import Footer from '../components/Footer';
 
@@ -15,6 +16,7 @@ class AddProduct extends Component {
     name: "",
     imageUrl: "",
     description: "",
+    categories: [],
   }
 
   handleChange = event => {
@@ -45,7 +47,14 @@ class AddProduct extends Component {
     .catch((error) => console.log(error))
   }
 
-
+  componentDidMount() {
+    categoryService.getAll()
+      .then((categories)=>{
+        this.setState({
+          categories: categories
+        })
+      })
+  }
 
   render() {
     const { category_id, name, imageUrl, description } = this.state
@@ -58,12 +67,11 @@ class AddProduct extends Component {
               <label for="exampleFormControlSelect">Find a Category</label>
                 <select className="form-control border border-secondary" id="exampleFormControlSelect" name="category_id" required onChange={this.handleChange}>
                   <option value={category_id}>Category</option>
-                  <option value="5d384b74fbf2fa0d640da184">Metal Bond</option>
-                  <option value="5d384b74fbf2fa0d640da185">Mounted-Points</option>
-                  <option value="5d384b74fbf2fa0d640da186">Traditional Grinder Wheels</option>
-                  <option value="5d384b74fbf2fa0d640da181">Bench Grinder Wheels</option>
-                  <option value="5d384b74fbf2fa0d640da182">Surface Grinder Wheels</option>
-                  <option value="5d384b74fbf2fa0d640da183">Diamond Dresser</option>
+                  {
+                    this.state.categories.map((category,index) => {
+                      return <option value={category._id}>{category.title}</option>
+                    })
+                  }
                 </select>
             </div>
             <div className="form-group text-center">

@@ -4,8 +4,8 @@ import { withAuth } from "../lib/AuthProvider";
 // import Footer from "../components/Footer"
 
 const style = {
-  width: '100%',
-  height: 'auto',
+  width: '60%',
+  margin: 'auto',
  
 }
 
@@ -15,19 +15,11 @@ class MainPage extends Component {
     return (
       <>
         <div>
-        <img src="../images/background wheels.jpg" alt="" className="img-fluid" style={{width: "100%", height: "200px"}} />
+        <img src="../images/background wheels.jpg" alt="" className="img-fluid" style={{width: "100%", height: "250px"}} />
         </div>
          <div className="main-products">
-          <h1 className="text-center">Our New Products</h1>
+          <h2 className="text-center mb-2">Our New Products</h2>
           <div id="carouselProducts" className="carousel slide" data-ride="carousel" >
-            {/* <ol className="carousel-indicators">
-              <li data-target="#carouselProducts" data-slide-to="0" className="active"></li>
-              <li data-target="#carouselProducts" data-slide-to="1"></li>
-              <li data-target="#carouselProducts" data-slide-to="2"></li>
-              <li data-target="#carouselProducts" data-slide-to="3"></li>
-              <li data-target="#carouselProducts" data-slide-to="4"></li>
-            </ol> */}
-
             <div className="carousel-inner">
               <div className="carousel-item active">
                 <img className="d-block img-fluid" src="../images/mounted-points/point-2.jpeg" alt="" style={style}/>

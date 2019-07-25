@@ -12,11 +12,11 @@ body {
   height: 70px;
   position: absolute;
   right: 0;
-  bottom: 0;
+  bottom: -50;
   left: 0;
   padding: 0.5rem;
-
 }
+
 .footer p {
   margin-bottom: 0;
 }

@@ -25,11 +25,11 @@ class Signup extends Component {
     return (
       <>
         <div>
-          <form onSubmit={this.handleFormSubmit}>
-            <div className="form-group">
+          <form className="add-form " onSubmit={this.handleFormSubmit}>
+            <div className="form-group text-center">
               <label for="labelUsername">Username:</label>
               <input
-                className="form-control"
+                className="form-control border border-secondary"
                 id="labelUsername"
                 placeholder="Username"
                 type="text"
@@ -38,10 +38,10 @@ class Signup extends Component {
                 onChange={this.handleChange}
               />
             </div>
-            <div className="form-group">
+            <div className="form-group text-center">
               <label for="labelPassword">Password:</label>
               <input
-                className="form-control"
+                className="form-control border border-secondary"
                 id="labelPassword"
                 placeholder="Passwprd"
                 type="password"
@@ -50,10 +50,10 @@ class Signup extends Component {
                 onChange={this.handleChange}
               />
             </div>
-            <div className="form-group">
+            <div className="form-group text-center">
               <label for="labelE-mail">E-mail:</label>
               <input
-                className="form-control"
+                className="form-control border border-secondary"
                 id="labelE-mail"
                 placeholder="E-mail"
                 type="text"
@@ -62,10 +62,10 @@ class Signup extends Component {
                 onChange={this.handleChange}
               />
             </div>
-            <div className="form-group">
+            <div className="form-group text-center">
               <label for="labelPhone">Phone:</label>
               <input
-                className="form-control"
+                className="form-control border border-secondary"
                 id="labelPhone"
                 placeholder="Phone"
                 type="text"

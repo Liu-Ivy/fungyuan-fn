@@ -21,11 +21,11 @@ class Login extends Component {
     const { username, password } = this.state;
     return (
       <>
-        <form onSubmit={this.handleFormSubmit}>
-          <div className="form-group">
+        <form className="add-form2" onSubmit={this.handleFormSubmit}>
+          <div className="form-group text-center">
             <label for="labelUsername">Username:</label>
             <input
-              className="form-control"
+              className="form-control border border-secondary"
               id="labelUsername"
               placeholder="Username"
               type="text"
@@ -34,10 +34,10 @@ class Login extends Component {
               onChange={this.handleChange}
             />
             </div>
-            <div className="form-group">
+            <div className="form-group text-center">
             <label for="labelPassword">Password:</label>
             <input
-              className="form-control"
+              className="form-control border border-secondary"
               id="labelPassword"
               placeholder="Passwprd"
               type="password"

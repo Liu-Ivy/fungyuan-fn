@@ -4,7 +4,7 @@ import product from '../lib/product-service.js';
 import ProductCard from '../card/ProductCard';
 import { Link } from "react-router-dom";
 import orderList from '../lib/orderList-service';
-import Footer from "../components/Footer";
+// import Footer from "../components/Footer";
 
 
 class Product extends Component {
@@ -70,9 +70,9 @@ class Product extends Component {
         <div className="d-flex justify-content-end">
           <Link to="/category"><button className="btn btn-info" active="active">Go Back</button></Link>
         </div>
-        <div>
+        {/* <div>
           <Footer className="footer"/>
-        </div>
+        </div> */}
       </div>
     )
   }

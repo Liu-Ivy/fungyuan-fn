@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { withAuth } from "../lib/AuthProvider";
 import { Link } from 'react-router-dom';
 import product from "../lib/product-service";
+import '../card/ProductCard';
 
 const style = {
   weight: '180px',
@@ -26,21 +27,25 @@ class OrderList extends Component {
     
     return (
       <div>
-        My Order List
+       <h2 className="text-center m-3">My Order List</h2>
         <br/>
          {this.state.productList.map(product=>{
           const { name, img, description } = product;
            return (
-            <div>
+            <div className="prodcut-card">
             <h3>{name}</h3>
             <img src={img} alt="" style={style}/>
             <p>{description}</p>
             </div>
            )
          })}
-        <br/>
-        <Link to="/category"><button>Go Back</button></Link>
+         <div className="d-flex justify-content-end">
+          <Link to="/category"><button className="btn btn-info" active="active" type="submit" value="goback">Go Back</button></Link>
+        </div>
       </div>
+
+      
+              
     )
   }
 }

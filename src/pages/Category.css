@@ -1,5 +1,5 @@
 .product-box {
-  height: 600px;
+  height: 800px;
 }
 
 .product{
@@ -10,14 +10,14 @@
   align-items: center;
   margin: auto;
 }
+
 .footer {
   height: 70px;
-  position: absolute;
-  right: 0;
-  bottom: 0;
+  position: fixed;
   left: 0;
-  padding: 1rem;
-  border: solid 1px red;
+  bottom: 0;
+  width: 100%;
+  
 }
 .footer p {
   margin-bottom: 0;

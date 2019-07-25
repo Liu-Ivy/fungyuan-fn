@@ -5,6 +5,7 @@ body {
 .container {
   margin: 0px;
   padding: 0px;
+  height: 100%;
 }
 
 .footer {
@@ -53,22 +54,37 @@ p{
 
 .about-us{
   background-image: url("/images/background wheels.jpg");
+  background-position: center; 
+  background-repeat: no-repeat; 
+  background-size: cover;
+  
+}
+.about-us-card{
+  background-color: rgb(126, 117, 117);
+  color: white;
+  opacity: 0.9;
   width: 300px;
   height: 200px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: auto;
-  
+  margin: 0px 40px 0px 40px;
+  padding: 20px;
 }
 
 .add-form{
   height: 350px;
   width: 300px;
+  margin: 0 40px 0 40px;
   border: solid 1px grey;
-  margin: auto;
   box-shadow: 10px 10px 5px grey;
-  
+}
+.add-form2 {
+  height: 200px;
+  width: 300px;
+  border: solid 1px grey;
+  box-shadow: 10px 10px 5px grey;
+  margin: 0 40px 0 40px;
 }
 .order-list {
   height: 300px;

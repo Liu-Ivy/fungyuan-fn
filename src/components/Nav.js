@@ -34,8 +34,7 @@ class Nav extends Component {
                 <Link to="/orderList">My Order</Link>  
               </li>
               <li className="nav-item" style={{margin: "10px"}}>
-                {/* <Link to="/" onClick={logout}>Logout</Link> */}
-                <button onClick={logout}>Logout</button>
+                <button className="logout-button"onClick={logout}>Logout</button>
               </li>
             </ul> 
           </div>

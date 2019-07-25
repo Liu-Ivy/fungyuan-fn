@@ -28,6 +28,7 @@ class Auth {
   }
 
   me() {
+    console.log('process.env.REACT_APP_BASE_URL', process.env.REACT_APP_BASE_URL)
     return this.auth.get("/auth/me").then(response => response.data);
   }
 }

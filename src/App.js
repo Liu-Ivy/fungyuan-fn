@@ -3,7 +3,6 @@ import { Switch } from "react-router-dom";
 
 import Nav from "./components/Nav";
 import Private from "./pages/Private";
-
 import PrivateRoute from "./components/PrivateRoute";
 import AnonRoute from "./components/AnonRoute";
 import AuthProvider from "./lib/AuthProvider";

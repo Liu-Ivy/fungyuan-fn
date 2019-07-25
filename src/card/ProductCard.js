@@ -8,12 +8,8 @@ const style = {
   height: '180px',
  }
 
-
-
 class ProductCard extends Component {
-  
   handleSwitch=()=>{
-    console.log('this.props.orderList', this.props.orderList)
     if (this.props.orderList && this.props.orderList.includes(this.props.product._id)){
       return <button onClick={()=>{this.props.handleRemove(this.props.product._id)}}>Remove -</button>
     } else {
@@ -23,7 +19,6 @@ class ProductCard extends Component {
 
   render() {
     const { name, img, description } = this.props.product;
-    console.log('this.props', this.props)
     return (
       <div className="prodcut-card">
         <div>
@@ -37,7 +32,7 @@ class ProductCard extends Component {
           {this.props.user.username === "admin" ? 
             <button onClick={()=>{this.props.handleDelete(this.props.product._id)}}>Delete</button> : 
             this.handleSwitch(this.props)
-          } {/*this.props from parents-Product*/}
+          } 
         </div>
       </div>
     )

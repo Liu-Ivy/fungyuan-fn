@@ -11,7 +11,6 @@ class Category {
   getAll(){
     return this.category.get('/')
     .then(({ data }) => {
-        console.log('data', data)
         return data
       });
   }

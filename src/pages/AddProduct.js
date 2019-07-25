@@ -2,14 +2,13 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import product from '../lib/product-service';
 import "../App.css";
-import Footer from '../components/Footer';
+// import Footer from '../components/Footer';
 
 const style = {
   height: '80px',
   width: '80px',
   margin: '10px'
 }
-
 class AddProduct extends Component {
   state = {
     category_id: "",
@@ -20,12 +19,10 @@ class AddProduct extends Component {
 
   handleChange = event => {
     const { name, value } = event.target;
-    console.log('name,value', name,value)
     this.setState({ [name]: value });
   };
 
   handleFormSubmit = event => {
-    console.log('this.state', this.state)
     event.preventDefault();
     const { category_id, name, imageUrl, description } = this.state;
     product.createProduct({ category_id, name, imageUrl, description })
@@ -81,17 +78,17 @@ class AddProduct extends Component {
           <label for="exampleFormControlFile">Image</label>
           <input  className="form-control-file border border-secondary" id="exampleFormControlFile" type="file" onChange={this.fileOnchange}></input>
           <img src={imageUrl} alt="" style={style}/>  
-          <input  className="input" type="submit" value='submit'/>
+          <input  className="input border border-secondary" type="submit" value='submit'/>
         </div>
         </form>
 
           <div className="d-flex justify-content-end">
-            <Link to="/category"><button className="btn btn-info mt-3" active="active" type="submit" value="back">Go Back</button></Link>
+            <Link to="/category"><button className="btn btn-info" active="active" type="submit" value="back">Go Back</button></Link>
           </div>
       </div>
-        <div>
+        {/* <div>
           <Footer className="footer"/>
-        </div>
+        </div> */}
       </>
     )
   }

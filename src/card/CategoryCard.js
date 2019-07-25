@@ -10,7 +10,6 @@ const style = {
 
 function CategoryCard(props) {
   const { title, image, _id } = props.category
-  // console.log('image', image)
   return (
     <div className='category'>
       <Link to={`/category/${_id}`}>

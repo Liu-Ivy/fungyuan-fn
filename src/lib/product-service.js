@@ -7,7 +7,6 @@ class Product {
       withCredentials: true
     });
   }
-
   getProduct(id) {
     return this.product.get(`/getCategory/${id}`)
         .then(({ data }) => {

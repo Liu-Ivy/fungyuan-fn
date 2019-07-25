@@ -15,7 +15,7 @@ class OrderList {
       });
     } 
   updatedOrderList(newUser){
-    return this.orderList.put('/',newUser)//OrderList L.42
+    return this.orderList.put('/',newUser)
       .then(({ data }) => {
         return data
       });

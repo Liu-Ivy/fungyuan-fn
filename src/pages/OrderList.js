@@ -23,6 +23,11 @@ class OrderList extends Component {
       })
     }
   }
+  // componentDidUpdate(prevProps, prevState){
+  //   console.log('this.props', this.props)
+  //   console.log('this.state', this.state)
+     
+  // }
   render() {
     
     return (

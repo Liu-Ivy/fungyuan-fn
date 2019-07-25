@@ -3,7 +3,7 @@ import axios from "axios";
 class Category {
   constructor() {
     this.category = axios.create({
-      baseURL: "http://localhost:5000/category",
+      baseURL: `${process.env.REACT_APP_BASE_URL}/category`,
       withCredentials: true
     });
   }

@@ -1,6 +1,6 @@
+
 import React, { Component } from "react";
 import { Switch } from "react-router-dom";
-
 import Nav from "./components/Nav";
 import Private from "./pages/Private";
 import PrivateRoute from "./components/PrivateRoute";
@@ -13,6 +13,7 @@ import Prodcut from "./pages/Product";
 import AddProduct from "./pages/AddProduct";
 import OrderList from "./pages/OrderList";
 import './App.css';
+
 
 
 

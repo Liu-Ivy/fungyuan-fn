@@ -22,7 +22,7 @@ class Category extends Component {
       <div className="product-box">
         <h2 className="text-center">Our Products</h2>
         <div className="product">
-        {this.state.categories.map((category)=>{
+        {this.state.categories && this.state.categories.map((category)=>{
           return <CategoryCard category={category} key={category._id}/>
         })}
         <Link to="/addProduct">{this.props.user.username === "admin" ? 

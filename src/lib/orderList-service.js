@@ -3,7 +3,7 @@ import axios from "axios";
 class OrderList {
   constructor() {
     this.orderList = axios.create({
-      baseURL:`http://localhost:5000/orderList`,
+      baseURL:`${process.env.REACT_APP_BASE_URL}/orderList`,
       withCredentials: true
     });
   }
@@ -15,6 +15,7 @@ class OrderList {
       });
     } 
   updatedOrderList(newUser){
+    console.log('orderList')
     return this.orderList.put('/',newUser)
       .then(({ data }) => {
         return data

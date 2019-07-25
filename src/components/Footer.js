@@ -7,7 +7,7 @@ function Footer() {
       <h4>Contact Us</h4>
       <div className="text-center d-flex justify-content-around">
         <span>
-          <h5  >Fungyuan Taiwan</h5>
+          <h5>Fungyuan Taiwan</h5>
           <h5>Phone: +886 4 2245 2639</h5>
         </span>
         <span >

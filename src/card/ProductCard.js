@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 // import { Link } from 'react-router-dom';
 import { withAuth } from "../lib/AuthProvider";
+import './ProductCard.css';
 
 const style = {
   weight: '180px',
@@ -24,14 +25,20 @@ class ProductCard extends Component {
     const { name, img, description } = this.props.product;
     console.log('this.props', this.props)
     return (
-      <div>
-        <h3>{name}</h3>
-        <img src={img} alt="" style={style}/>
-        <p>{description}</p>
-        {this.props.user.username === "admin" ? 
-          <button onClick={()=>{this.props.handleDelete(this.props.product._id)}}>Delete</button> : 
-          this.handleSwitch(this.props)
-        } {/*this.props from parents-Product*/}
+      <div className="prodcut-card">
+        <div>
+          <h3 className="text-center">{name}</h3>
+        </div>
+        <div>
+          <img src={img} alt="" style={style}/>
+        </div>
+        <div>
+          <p className="text-center">{description}</p>
+          {this.props.user.username === "admin" ? 
+            <button onClick={()=>{this.props.handleDelete(this.props.product._id)}}>Delete</button> : 
+            this.handleSwitch(this.props)
+          } {/*this.props from parents-Product*/}
+        </div>
       </div>
     )
   }

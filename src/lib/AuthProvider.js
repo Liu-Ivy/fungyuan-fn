@@ -89,6 +89,7 @@ class AuthProvider extends Component {
   };
 
   logout = () => {
+    console.log('logout')
     auth
       .logout()
       .then(() => {

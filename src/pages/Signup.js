@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import { withAuth } from "../lib/AuthProvider";
 
 class Signup extends Component {
@@ -24,43 +23,63 @@ class Signup extends Component {
   render() {
     const { username, password, email, phone } = this.state;
     return (
-      <div>
-        <form onSubmit={this.handleFormSubmit}>
-          <label>Username:</label>
-          <input
-            type="text"
-            name="username" 
-            value={username}
-            onChange={this.handleChange}
-          />
-          <label>Password:</label>
-          <input
-            type="password"
-            name="password"
-            value={password}
-            onChange={this.handleChange}
-          />
-          <label>E-mail:</label>
-          <input
-            type="text"
-            name="email"
-            value={email}
-            onChange={this.handleChange}
-          />
-          <label>Phone:</label>
-          <input
-            type="text"
-            name="phone"
-            value={phone}
-            onChange={this.handleChange}
-          />
-          <input type="submit" value="Signup" />
-        </form>
-        <p>
-          Already have account?
-          <Link to={"/login"}> Login</Link>
-        </p>
-      </div>
+      <>
+        <div>
+          <form onSubmit={this.handleFormSubmit}>
+            <div className="form-group">
+              <label for="labelUsername">Username:</label>
+              <input
+                className="form-control"
+                id="labelUsername"
+                placeholder="Username"
+                type="text"
+                name="username" 
+                value={username}
+                onChange={this.handleChange}
+              />
+            </div>
+            <div className="form-group">
+              <label for="labelPassword">Password:</label>
+              <input
+                className="form-control"
+                id="labelPassword"
+                placeholder="Passwprd"
+                type="password"
+                name="password"
+                value={password}
+                onChange={this.handleChange}
+              />
+            </div>
+            <div className="form-group">
+              <label for="labelE-mail">E-mail:</label>
+              <input
+                className="form-control"
+                id="labelE-mail"
+                placeholder="E-mail"
+                type="text"
+                name="email"
+                value={email}
+                onChange={this.handleChange}
+              />
+            </div>
+            <div className="form-group">
+              <label for="labelPhone">Phone:</label>
+              <input
+                className="form-control"
+                id="labelPhone"
+                placeholder="Phone"
+                type="text"
+                name="phone"
+                value={phone}
+                onChange={this.handleChange}
+              />
+            </div>
+            <div className="d-flex justify-content-end">
+              <button className="btn btn-info" active="active" type="submit" value="Signup">Signup</button>
+            </div>
+          </form>
+        </div>
+      </>
     );
   }
 }

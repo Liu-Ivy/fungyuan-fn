@@ -1,6 +1,5 @@
 .product-box {
   height: 600px;
-  border: solid 0.5px darkblue;
 }
 
 .product{
@@ -10,4 +9,16 @@
   justify-content: space-around;
   align-items: center;
   margin: auto;
+}
+.footer {
+  height: 70px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  border: solid 1px red;
+}
+.footer p {
+  margin-bottom: 0;
 }

@@ -3,7 +3,6 @@ import { Switch } from "react-router-dom";
 
 import Nav from "./components/Nav";
 import Private from "./pages/Private";
-import Footer from "./components/Footer";
 
 import PrivateRoute from "./components/PrivateRoute";
 import AnonRoute from "./components/AnonRoute";
@@ -23,7 +22,7 @@ class App extends Component {
     return (
       <AuthProvider>
         <div className="container">
-          <Nav className="nav" />
+              <Nav className="nav" />
           <Switch >
             <AnonRoute className="main-products info" exact path="/" component={MainPage} />
             <AnonRoute className="about-us" path="/form" component={FormPage} />
@@ -33,7 +32,6 @@ class App extends Component {
             <PrivateRoute className="add-form" exact path="/addProduct" component={AddProduct} />
             <PrivateRoute className="order-list" path="/orderList" component={OrderList}/>
           </Switch>
-         <Footer className="footer"/>
         </div>
       </AuthProvider>
     );

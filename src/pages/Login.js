@@ -20,23 +20,37 @@ class Login extends Component {
   render() {
     const { username, password } = this.state;
     return (
-      <form onSubmit={this.handleFormSubmit}>
-        <label>Username:</label>
-        <input
-          type="text"
-          name="username"
-          value={username}
-          onChange={this.handleChange}
-        />
-        <label>Password:</label>
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={this.handleChange}
-        />
-        <input type="submit" value="Login" />
-      </form>
+      <>
+        <form onSubmit={this.handleFormSubmit}>
+          <div className="form-group">
+            <label for="labelUsername">Username:</label>
+            <input
+              className="form-control"
+              id="labelUsername"
+              placeholder="Username"
+              type="text"
+              name="username"
+              value={username}
+              onChange={this.handleChange}
+            />
+            </div>
+            <div className="form-group">
+            <label for="labelPassword">Password:</label>
+            <input
+              className="form-control"
+              id="labelPassword"
+              placeholder="Passwprd"
+              type="password"
+              name="password"
+              value={password}
+              onChange={this.handleChange}
+            />
+            </div>
+            <div className="d-flex justify-content-end">
+                <button className="btn btn-info" active="active" type="submit" value="Login">Login</button>
+            </div>
+        </form>
+      </>
     );
   }
 }

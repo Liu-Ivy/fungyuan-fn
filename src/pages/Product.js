@@ -4,6 +4,7 @@ import product from '../lib/product-service.js';
 import ProductCard from '../card/ProductCard';
 import { Link } from "react-router-dom";
 import orderList from '../lib/orderList-service';
+import Footer from "../components/Footer";
 
 
 class Product extends Component {
@@ -21,7 +22,7 @@ class Product extends Component {
   }
 
   showTitle() {
-    return this.state.products[0] ? <h1>{this.state.products[0].category_id.title}</h1> : null
+    return this.state.products[0] ? <h2 className="text-center">{this.state.products[0].category_id.title}</h2> : null
   }
   
   handleDelete = (productID) => {
@@ -66,7 +67,12 @@ class Product extends Component {
           console.log('product', product)
           return <ProductCard product={product} key={product._id} handleDelete={this.handleDelete} handleAdd={this.handleAdd} handleRemove={this.handleRemove}/>
         })}
-        <Link to="/category"><button>Go Back</button></Link>
+        <div className="d-flex justify-content-end">
+          <Link to="/category"><button className="btn btn-info" active="active">Go Back</button></Link>
+        </div>
+        <div>
+          <Footer className="footer"/>
+        </div>
       </div>
     )
   }

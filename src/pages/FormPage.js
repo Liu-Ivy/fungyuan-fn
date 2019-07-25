@@ -6,7 +6,7 @@ import Login from "./Login";
 function FormPage() {
   return (
     <>
-      <div className='bg-dark text-light'>
+      <div className='about-us text-dark mb-3'>
         <h2 className='text-center pt-4'>
           About Us
         </h2>
@@ -14,7 +14,7 @@ function FormPage() {
           {/* We attribute our products’ success to the active client service and the continues assessment of the emerging market needs. We serve our partners’ best interests by developing new, higher performance grinding tools and solutions. We have a strong client support, which is best demonstrated by our ability to deliver customized and cost effective solutions for our clients assorted and in time more complex grinding needs. */}
         </h4>
       </div>
-      <div className='about-us'>
+      <div className="form">
         <h2>Signup</h2>
         <Signup />
         <h2>Login</h2>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import { withAuth } from "../lib/AuthProvider";
+import Footer from "../components/Footer"
 
 const style = {
   width: '100%',
@@ -13,6 +14,9 @@ class MainPage extends Component {
   render() {
     return (
       <>
+        <div>
+        <img src="../images/background wheels.jpg" alt="" className="img-fluid" style={{width: "100%", height: "200px"}} />
+        </div>
          <div className="main-products">
           <h1 className="text-center">Our New Products</h1>
           <div id="carouselProducts" className="carousel slide" data-ride="carousel" >
@@ -26,7 +30,7 @@ class MainPage extends Component {
 
             <div className="carousel-inner">
               <div className="carousel-item active">
-                <img className="d-block img-fluid img-center" src="../images/traditional/t-2.jpg" alt="" style={style}/>
+                <img className="d-block img-fluid" src="../images/mounted-points/point-2.jpeg" alt="" style={style}/>
               </div>
               <div className="carousel-item">
                 <img className="d-block img-fluid" src="../images/surface/surface-1.jpg" alt="" style={style}/>
@@ -35,7 +39,7 @@ class MainPage extends Component {
                 <img className="d-block img-fluid" src="../images/mounted-points/point-3.jpg" alt="" style={style}/>
               </div>
               <div className="carousel-item">
-                <img className="d-block img-fluid" src="../images/mounted-points/point-2.jpeg" alt="" style={style}/>
+                <img className="d-block img-fluid img-center" src="../images/traditional/t-2.jpg" alt="" style={style}/>
               </div>
               <div className="carousel-item">
                 <img className="d-block img-fluid" src="../images/diamond-dresser/dresser-3.jpg" alt="" style={style}/>
@@ -53,6 +57,9 @@ class MainPage extends Component {
             <Link to='/form'><button className="btn btn-info" active="active">See More</button></Link>
           </div>
          </div>
+         <div>
+          <Footer className="footer"/>
+        </div>
       </>
     )
   }

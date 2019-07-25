@@ -10,7 +10,7 @@ const style = {
 
 class OrderList extends Component {
   state = {
-    orderList: this.props.orderList,//from context
+    orderList: this.props.user.orderList,//from context
     productList: [],
   }
   componentDidMount() {

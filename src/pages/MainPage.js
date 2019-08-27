@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import { withAuth } from "../lib/AuthProvider";
-// import Footer from "../components/Footer"
 
 const style = {
   width: '60%',
@@ -49,9 +48,6 @@ class MainPage extends Component {
             <Link to='/form'><button className="btn btn-info" active="active">See More</button></Link>
           </div>
          </div>
-         {/* <div>
-          <Footer className="footer"/>
-        </div> */}
       </>
     )
   }

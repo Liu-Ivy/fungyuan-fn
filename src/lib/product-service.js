@@ -10,7 +10,6 @@ class Product {
   getProduct(id) {
     return this.product.get(`/getCategory/${id}`)
         .then(({ data }) => {
-          // console.log('getProduct',data)
           return data
         });
     } 

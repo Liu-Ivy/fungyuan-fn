@@ -3,7 +3,6 @@ import categoryService from '../lib/category-service';
 import CategoryCard from '../card/CategoryCard';
 import { withAuth } from "../lib/AuthProvider";
 import { Link } from "react-router-dom";
-// import Footer from "../components/Footer";
 import './Category.css';
 
 class Category extends Component {
@@ -30,9 +29,6 @@ class Category extends Component {
         <button className="btn btn-info mt-2" active="active" type="submit" value="submit">Add New Products</button></div> : null }</Link>
         </div>
       </div>
-        {/* <div className="footer">
-          <Footer/>
-        </div> */}
       </>
     )
   }

@@ -4,7 +4,6 @@ import product from '../lib/product-service.js';
 import ProductCard from '../card/ProductCard';
 import { Link } from "react-router-dom";
 import orderList from '../lib/orderList-service';
-// import Footer from "../components/Footer";
 
 
 class Product extends Component {
@@ -13,7 +12,6 @@ class Product extends Component {
   }
 
   componentDidMount() {
-    // console.log('this.props', this.props)
     product.getProduct(this.props.match.params.id)
     .then((products)=> {
       this.setState({products:products})
@@ -35,17 +33,17 @@ class Product extends Component {
   }
   handleAdd = (productID) => {
     const oldOrderList = [...this.props.orderList]
-    const newOrderList = [...oldOrderList, productID]//this.props.orderList -- from context
-    this.props.setOrderList(newOrderList);//updated orderList in context
-    const newUser = Object.assign({},this.props.user)//get user without reference
+    const newOrderList = [...oldOrderList, productID]
+    this.props.setOrderList(newOrderList);
+    const newUser = Object.assign({},this.props.user)
     newUser.orderList = newOrderList
     orderList.updatedOrderList(newUser)
   }
   handleRemove = (productID) => {
     const oldOrderList = [...this.props.orderList];
     const newOrderList = oldOrderList.filter(id => productID !== id)
-    this.props.setOrderList(newOrderList);//updated orderList in context
-    const newUser = Object.assign({},this.props.user)//get user without reference
+    this.props.setOrderList(newOrderList);
+    const newUser = Object.assign({},this.props.user)
     newUser.orderList = newOrderList
     orderList.updatedOrderList(newUser)
   }
@@ -61,9 +59,6 @@ class Product extends Component {
         <div className="d-flex justify-content-end">
           <Link to="/category"><button className="btn btn-info" active="active">Go Back</button></Link>
         </div>
-        {/* <div>
-          <Footer className="footer"/>
-        </div> */}
       </div>
     )
   }

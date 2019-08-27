@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import product from '../lib/product-service';
 import categoryService from '../lib/category-service';
 import "../App.css";
-// import Footer from '../components/Footer';
 
 const style = {
   height: '80px',
@@ -62,7 +61,7 @@ class AddProduct extends Component {
       <>
       <div>
         <h2 className="text-center m-3">Add a New Product</h2>
-        <form className="add-form" onSubmit={this.handleFormSubmit}>
+        <form className="add-form3" onSubmit={this.handleFormSubmit}>
             <div className="form-group text-center">
               <label for="exampleFormControlSelect">Find a Category</label>
                 <select className="form-control border border-secondary" id="exampleFormControlSelect" name="category_id" required onChange={this.handleChange}>
@@ -90,13 +89,10 @@ class AddProduct extends Component {
         </div>
         </form>
 
-          <div className="d-flex justify-content-end">
+          <div className="d-flex justify-content-center mt-4">
             <Link to="/category"><button className="btn btn-info" active="active" type="submit" value="back">Go Back</button></Link>
           </div>
       </div>
-        {/* <div>
-          <Footer className="footer"/>
-        </div> */}
       </>
     )
   }

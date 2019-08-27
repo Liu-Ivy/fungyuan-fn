@@ -48,9 +48,6 @@ class OrderList extends Component {
           <Link to="/category"><button className="btn btn-info" active="active" type="submit" value="goback">Go Back</button></Link>
         </div>
       </div>
-
-      
-              
     )
   }
 }
